@@ -1,1 +1,3 @@
-export default function Spinner() { return <div /> }
+export default function Spinner() {
+  return <div />;
+}

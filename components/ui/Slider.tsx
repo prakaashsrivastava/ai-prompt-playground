@@ -1,1 +1,3 @@
-export default function Slider() { return <div /> }
+export default function Slider() {
+  return <div />;
+}

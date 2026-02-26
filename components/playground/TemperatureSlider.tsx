@@ -1,1 +1,3 @@
-export default function TemperatureSlider() { return <div>TemperatureSlider</div> }
+export default function TemperatureSlider() {
+  return <div>TemperatureSlider</div>;
+}
