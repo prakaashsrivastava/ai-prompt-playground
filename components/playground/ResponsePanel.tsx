@@ -1,1 +1,3 @@
-export default function ResponsePanel() { return <div>ResponsePanel</div> }
+export default function ResponsePanel() {
+  return <div>ResponsePanel</div>;
+}

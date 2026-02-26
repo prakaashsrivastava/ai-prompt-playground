@@ -1,1 +1,3 @@
-export default function StatsBar() { return <div>StatsBar</div> }
+export default function StatsBar() {
+  return <div>StatsBar</div>;
+}
