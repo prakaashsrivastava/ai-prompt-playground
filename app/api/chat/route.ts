@@ -63,14 +63,17 @@ export async function POST(req: NextRequest) {
       try {
         if (isOpenAI) {
           const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-          const responseStream = await openai.chat.completions.create({
-            model,
-            messages: openAiMessages,
-            temperature,
-            max_tokens: maxTokens,
-            stream: true,
-            stream_options: { include_usage: true },
-          });
+          const responseStream = await openai.chat.completions.create(
+            {
+              model,
+              messages: openAiMessages,
+              temperature,
+              max_tokens: maxTokens,
+              stream: true,
+              stream_options: { include_usage: true },
+            },
+            { signal: req.signal },
+          );
 
           let usage: OpenAI.Completions.CompletionUsage | undefined = undefined;
 
@@ -102,14 +105,17 @@ export async function POST(req: NextRequest) {
         } else {
           const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
           // @ts-expect-error - Usage streaming is supported by Groq but might not be fully typed in the SDK yet
-          const responseStream = await groq.chat.completions.create({
-            model,
-            messages: groqMessages,
-            temperature,
-            max_tokens: maxTokens,
-            stream: true,
-            stream_options: { include_usage: true },
-          });
+          const responseStream = await groq.chat.completions.create(
+            {
+              model,
+              messages: groqMessages,
+              temperature,
+              max_tokens: maxTokens,
+              stream: true,
+              stream_options: { include_usage: true },
+            },
+            { signal: req.signal },
+          );
 
           let usage: OpenAI.Completions.CompletionUsage | undefined = undefined;
 

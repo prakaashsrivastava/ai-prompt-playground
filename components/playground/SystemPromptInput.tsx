@@ -6,11 +6,13 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 interface SystemPromptInputProps {
   value: string;
   onChange: (value: string) => void;
+  disabled?: boolean;
 }
 
 export default function SystemPromptInput({
   value,
   onChange,
+  disabled,
 }: SystemPromptInputProps) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -63,9 +65,10 @@ export default function SystemPromptInput({
           <textarea
             value={value}
             onChange={(e) => onChange(e.target.value)}
+            disabled={disabled}
             rows={4}
             placeholder="You are a helpful assistant. Define the AI's personality, role, and constraints here..."
-            className="w-full bg-gray-800 text-sm text-white border border-gray-700 rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-y mt-1"
+            className="w-full bg-gray-800 text-sm text-white border border-gray-700 rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-y mt-1 disabled:opacity-50 disabled:cursor-not-allowed"
           />
 
           <div className="flex flex-wrap gap-2 pb-1">
@@ -73,8 +76,9 @@ export default function SystemPromptInput({
               <button
                 key={index}
                 type="button"
+                disabled={disabled}
                 onClick={() => onChange(preset.prompt)}
-                className="text-xs font-medium py-1.5 px-3 bg-gray-800 hover:bg-gray-700 text-gray-300 border border-gray-700 rounded-full transition-colors whitespace-nowrap"
+                className="text-xs font-medium py-1.5 px-3 bg-gray-800 hover:bg-gray-700 text-gray-300 border border-gray-700 rounded-full transition-colors whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {preset.label}
               </button>

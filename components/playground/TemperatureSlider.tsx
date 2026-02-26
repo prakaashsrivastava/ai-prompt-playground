@@ -3,11 +3,13 @@
 interface TemperatureSliderProps {
   value: number;
   onChange: (value: number) => void;
+  disabled?: boolean;
 }
 
 export default function TemperatureSlider({
   value,
   onChange,
+  disabled,
 }: TemperatureSliderProps) {
   // Determine badge color
   let badgeColor = "bg-red-500/20 text-red-500 border-red-500/30";
@@ -51,7 +53,8 @@ export default function TemperatureSlider({
         step="0.1"
         value={value}
         onChange={(e) => onChange(parseFloat(e.target.value))}
-        className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-purple-500"
+        disabled={disabled}
+        className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-purple-500 disabled:opacity-50 disabled:cursor-not-allowed"
       />
 
       <div className="flex justify-between text-xs text-gray-400 font-medium px-1">
