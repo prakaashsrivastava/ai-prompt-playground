@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import ModelSelector from './ModelSelector';
-import TemperatureSlider from './TemperatureSlider';
-import TokenInput from './TokenInput';
-import SystemPromptInput from './SystemPromptInput';
+import ModelSelector from "./ModelSelector";
+import TemperatureSlider from "./TemperatureSlider";
+import TokenInput from "./TokenInput";
+import SystemPromptInput from "./SystemPromptInput";
 
 interface ConfigPanelProps {
   selectedModel: string;
@@ -24,7 +24,7 @@ export default function ConfigPanel({
   maxTokens,
   onMaxTokensChange,
   systemPrompt,
-  onSystemPromptChange
+  onSystemPromptChange,
 }: ConfigPanelProps) {
   return (
     <div className="h-full overflow-y-auto space-y-0">
@@ -44,19 +44,13 @@ export default function ConfigPanel({
       <hr className="border-t border-gray-700" />
 
       <div className="py-4">
-        <TemperatureSlider
-          value={temperature}
-          onChange={onTemperatureChange}
-        />
+        <TemperatureSlider value={temperature} onChange={onTemperatureChange} />
       </div>
 
       <hr className="border-t border-gray-700" />
 
       <div className="py-4">
-        <TokenInput
-          value={maxTokens}
-          onChange={onMaxTokensChange}
-        />
+        <TokenInput value={maxTokens} onChange={onMaxTokensChange} />
       </div>
 
       <hr className="border-t border-gray-700" />

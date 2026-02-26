@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { Copy, Terminal, AlertCircle, Check } from 'lucide-react';
+import { useState } from "react";
+import { Copy, Terminal, AlertCircle, Check } from "lucide-react";
 
 interface ResponsePanelProps {
   response: string;
@@ -14,7 +14,7 @@ export default function ResponsePanel({
   response,
   isStreaming,
   isLoading,
-  error
+  error,
 }: ResponsePanelProps) {
   const [copied, setCopied] = useState(false);
 
@@ -26,7 +26,7 @@ export default function ResponsePanel({
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
-      console.error('Failed to copy to clipboard', err);
+      console.error("Failed to copy to clipboard", err);
     }
   };
 
@@ -62,7 +62,9 @@ export default function ResponsePanel({
         ) : !response && !isLoading ? (
           <div className="flex flex-col items-center justify-center h-full text-gray-500 gap-3">
             <Terminal className="w-10 h-10 opacity-50" />
-            <p className="text-sm font-medium">Your response will appear here...</p>
+            <p className="text-sm font-medium">
+              Your response will appear here...
+            </p>
           </div>
         ) : !response && isLoading ? (
           <div className="flex flex-col gap-4 animate-pulse pt-2">

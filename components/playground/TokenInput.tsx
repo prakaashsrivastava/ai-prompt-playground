@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 interface TokenInputProps {
   value: number;
@@ -10,7 +10,10 @@ export default function TokenInput({ value, onChange }: TokenInputProps) {
 
   return (
     <div className="w-full flex flex-col gap-2">
-      <label htmlFor="max-tokens-input" className="text-sm font-medium text-gray-200">
+      <label
+        htmlFor="max-tokens-input"
+        className="text-sm font-medium text-gray-200"
+      >
         Max Tokens
       </label>
 
@@ -31,10 +34,11 @@ export default function TokenInput({ value, onChange }: TokenInputProps) {
             key={preset}
             type="button"
             onClick={() => onChange(preset)}
-            className={`flex-1 py-1.5 px-2 text-xs font-medium rounded-md border transition-colors ${value === preset
-                ? 'bg-purple-500/20 text-purple-400 border-purple-500/50'
-                : 'bg-gray-800 text-gray-400 border-gray-700 hover:bg-gray-700 hover:text-gray-300'
-              }`}
+            className={`flex-1 py-1.5 px-2 text-xs font-medium rounded-md border transition-colors ${
+              value === preset
+                ? "bg-purple-500/20 text-purple-400 border-purple-500/50"
+                : "bg-gray-800 text-gray-400 border-gray-700 hover:bg-gray-700 hover:text-gray-300"
+            }`}
           >
             {preset}
           </button>

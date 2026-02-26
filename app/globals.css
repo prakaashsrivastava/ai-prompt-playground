@@ -24,7 +24,7 @@ textarea {
 }
 
 /* Custom range slider styling */
-input[type='range'] {
+input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
   height: 4px;
@@ -32,7 +32,7 @@ input[type='range'] {
   border-radius: 2px;
   outline: none;
 }
-input[type='range']::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   width: 16px;
@@ -41,7 +41,7 @@ input[type='range']::-webkit-slider-thumb {
   border-radius: 50%;
   cursor: pointer;
 }
-input[type='range']::-moz-range-thumb {
+input[type="range"]::-moz-range-thumb {
   width: 16px;
   height: 16px;
   background: #7c3aed;

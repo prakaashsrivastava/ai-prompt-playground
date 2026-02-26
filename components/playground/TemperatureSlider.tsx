@@ -1,36 +1,44 @@
-'use client';
+"use client";
 
 interface TemperatureSliderProps {
   value: number;
   onChange: (value: number) => void;
 }
 
-export default function TemperatureSlider({ value, onChange }: TemperatureSliderProps) {
+export default function TemperatureSlider({
+  value,
+  onChange,
+}: TemperatureSliderProps) {
   // Determine badge color
-  let badgeColor = 'bg-red-500/20 text-red-500 border-red-500/30';
+  let badgeColor = "bg-red-500/20 text-red-500 border-red-500/30";
   if (value <= 0.4) {
-    badgeColor = 'bg-green-500/20 text-green-500 border-green-500/30';
+    badgeColor = "bg-green-500/20 text-green-500 border-green-500/30";
   } else if (value <= 0.9) {
-    badgeColor = 'bg-yellow-500/20 text-yellow-500 border-yellow-500/30';
+    badgeColor = "bg-yellow-500/20 text-yellow-500 border-yellow-500/30";
   }
 
   // Determine explanation text
-  let explanation = 'Experimental — responses may be unpredictable';
+  let explanation = "Experimental — responses may be unpredictable";
   if (value <= 0.3) {
-    explanation = 'Deterministic — best for code and facts';
+    explanation = "Deterministic — best for code and facts";
   } else if (value <= 0.7) {
-    explanation = 'Balanced — good for most tasks';
+    explanation = "Balanced — good for most tasks";
   } else if (value <= 1.2) {
-    explanation = 'Creative — good for writing and brainstorming';
+    explanation = "Creative — good for writing and brainstorming";
   }
 
   return (
     <div className="w-full flex flex-col gap-2">
       <div className="flex items-center justify-between">
-        <label htmlFor="temperature-slider" className="text-sm font-medium text-gray-200">
+        <label
+          htmlFor="temperature-slider"
+          className="text-sm font-medium text-gray-200"
+        >
           Temperature
         </label>
-        <span className={`px-2 py-0.5 rounded text-xs font-semibold border ${badgeColor}`}>
+        <span
+          className={`px-2 py-0.5 rounded text-xs font-semibold border ${badgeColor}`}
+        >
           {value.toFixed(1)}
         </span>
       </div>
@@ -52,9 +60,7 @@ export default function TemperatureSlider({ value, onChange }: TemperatureSlider
         <span>Creative</span>
       </div>
 
-      <p className="text-xs text-gray-500">
-        {explanation}
-      </p>
+      <p className="text-xs text-gray-500">{explanation}</p>
     </div>
   );
 }

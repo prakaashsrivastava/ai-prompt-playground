@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import usePlayground from '../hooks/usePlayground';
-import ConfigPanel from '../components/playground/ConfigPanel';
-import PromptInput from '../components/playground/PromptInput';
-import StatsBar from '../components/playground/StatsBar';
-import ResponsePanel from '../components/playground/ResponsePanel';
-import { getModelById } from '../lib/models';
-import { cn } from '../lib/utils';
+import usePlayground from "../hooks/usePlayground";
+import ConfigPanel from "../components/playground/ConfigPanel";
+import PromptInput from "../components/playground/PromptInput";
+import StatsBar from "../components/playground/StatsBar";
+import ResponsePanel from "../components/playground/ResponsePanel";
+import { getModelById } from "../lib/models";
+import { cn } from "../lib/utils";
 
 export default function Home() {
   const {
@@ -45,7 +45,7 @@ export default function Home() {
               "text-xs px-2.5 py-1 rounded-full font-semibold border",
               currentModel.provider === "groq"
                 ? "bg-green-500/10 text-green-400 border-green-500/20"
-                : "bg-blue-500/10 text-blue-400 border-blue-500/20"
+                : "bg-blue-500/10 text-blue-400 border-blue-500/20",
             )}
           >
             {currentModel.name}
@@ -55,7 +55,6 @@ export default function Home() {
 
       {/* Main Content Area */}
       <div className="flex flex-row flex-1 overflow-hidden">
-
         {/* Left Panel (Config) */}
         <div className="w-80 border-r border-gray-800 overflow-y-auto p-4 flex-shrink-0 bg-[#0f0f1a]">
           <ConfigPanel

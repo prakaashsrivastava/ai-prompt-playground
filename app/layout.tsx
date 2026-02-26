@@ -15,7 +15,8 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "AI Prompt Playground",
-  description: "Test and experiment with AI prompts using OpenAI and Groq models",
+  description:
+    "Test and experiment with AI prompts using OpenAI and Groq models",
 };
 
 export default function RootLayout({

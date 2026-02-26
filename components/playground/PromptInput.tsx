@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { Loader2 } from 'lucide-react';
+import { Loader2 } from "lucide-react";
 
 interface PromptInputProps {
   value: string;
@@ -17,10 +17,10 @@ export default function PromptInput({
   onSubmit,
   onStop,
   isLoading,
-  disabled
+  disabled,
 }: PromptInputProps) {
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+    if ((e.ctrlKey || e.metaKey) && e.key === "Enter") {
       e.preventDefault();
       if (!isLoading && value.trim() && !disabled) {
         onSubmit();
@@ -45,17 +45,16 @@ export default function PromptInput({
 
       <div className="flex justify-between items-center text-xs text-gray-500 px-1">
         <div>
-          {wordCount} {wordCount === 1 ? 'word' : 'words'} &bull; {charCount} {charCount === 1 ? 'char' : 'chars'}
+          {wordCount} {wordCount === 1 ? "word" : "words"} &bull; {charCount}{" "}
+          {charCount === 1 ? "char" : "chars"}
         </div>
-        <div>
-          Ctrl + Enter to send
-        </div>
+        <div>Ctrl + Enter to send</div>
       </div>
 
       <div className="flex justify-between items-center mt-1">
         <button
           type="button"
-          onClick={() => onChange('')}
+          onClick={() => onChange("")}
           disabled={isLoading || disabled}
           className="text-xs font-medium px-3 py-1.5 text-gray-400 hover:text-white hover:bg-gray-800 rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >

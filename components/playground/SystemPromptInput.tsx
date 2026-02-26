@@ -1,29 +1,35 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { useState } from "react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 interface SystemPromptInputProps {
   value: string;
   onChange: (value: string) => void;
 }
 
-export default function SystemPromptInput({ value, onChange }: SystemPromptInputProps) {
+export default function SystemPromptInput({
+  value,
+  onChange,
+}: SystemPromptInputProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const presets = [
     {
-      label: '🧑‍💻 Code Expert',
-      prompt: 'You are an expert software engineer. Provide clean, efficient, and well-commented code with explanations.'
+      label: "🧑‍💻 Code Expert",
+      prompt:
+        "You are an expert software engineer. Provide clean, efficient, and well-commented code with explanations.",
     },
     {
-      label: '✍️ Creative Writer',
-      prompt: 'You are a creative writing assistant. Be imaginative, use vivid language, and help craft engaging stories.'
+      label: "✍️ Creative Writer",
+      prompt:
+        "You are a creative writing assistant. Be imaginative, use vivid language, and help craft engaging stories.",
     },
     {
-      label: '📊 Data Analyst',
-      prompt: 'You are a data analysis expert. Provide structured insights, use bullet points, and be precise with numbers.'
-    }
+      label: "📊 Data Analyst",
+      prompt:
+        "You are a data analysis expert. Provide structured insights, use bullet points, and be precise with numbers.",
+    },
   ];
 
   return (
@@ -34,7 +40,9 @@ export default function SystemPromptInput({ value, onChange }: SystemPromptInput
         aria-expanded={isOpen}
       >
         <div className="flex items-center gap-2">
-          <span className="text-sm font-medium text-gray-200">System Prompt</span>
+          <span className="text-sm font-medium text-gray-200">
+            System Prompt
+          </span>
           <span className="text-xs text-gray-500">(optional)</span>
         </div>
         <div className="text-gray-400">
@@ -47,8 +55,9 @@ export default function SystemPromptInput({ value, onChange }: SystemPromptInput
       </div>
 
       <div
-        className={`grid transition-[grid-template-rows,opacity] duration-300 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
-          }`}
+        className={`grid transition-[grid-template-rows,opacity] duration-300 ease-in-out ${
+          isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+        }`}
       >
         <div className="overflow-hidden flex flex-col gap-3">
           <textarea
