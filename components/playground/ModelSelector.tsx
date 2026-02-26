@@ -7,11 +7,13 @@ import { cn } from "../../lib/utils";
 interface ModelSelectorProps {
   selectedModel: string;
   onModelChange: (modelId: string) => void;
+  disabled?: boolean;
 }
 
 export default function ModelSelector({
   selectedModel,
   onModelChange,
+  disabled,
 }: ModelSelectorProps) {
   const currentModel = getModelById(selectedModel);
 
@@ -43,7 +45,8 @@ export default function ModelSelector({
       <select
         value={selectedModel}
         onChange={(e) => onModelChange(e.target.value)}
-        className="w-full bg-[#1e1e2e] text-white border border-[#3d3d5c] rounded-lg py-2 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-shadow cursor-pointer"
+        disabled={disabled}
+        className="w-full bg-[#1e1e2e] text-white border border-[#3d3d5c] rounded-lg py-2 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-shadow cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
       >
         <optgroup label="⚡ Groq Models">
           {groqModels.map((model) => (

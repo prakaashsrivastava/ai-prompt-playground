@@ -8,6 +8,7 @@ interface ResponsePanelProps {
   isStreaming: boolean;
   isLoading: boolean;
   error: string | null;
+  title?: string;
 }
 
 export default function ResponsePanel({
@@ -15,6 +16,7 @@ export default function ResponsePanel({
   isStreaming,
   isLoading,
   error,
+  title,
 }: ResponsePanelProps) {
   const [copied, setCopied] = useState(false);
 
@@ -33,7 +35,9 @@ export default function ResponsePanel({
   return (
     <div className="w-full flex flex-col gap-2 h-full">
       <div className="flex items-center justify-between py-1">
-        <span className="font-bold text-gray-200">Response</span>
+        <span className="font-bold text-gray-200">
+          {title ? title : "Response"}
+        </span>
         <button
           onClick={handleCopy}
           disabled={!response || isStreaming}
@@ -74,7 +78,7 @@ export default function ResponsePanel({
           </div>
         ) : (
           <div className="h-full">
-            <pre className="whitespace-pre-wrap font-mono text-sm text-slate-200">
+            <pre className="whitespace-pre-wrap font-mono text-sm text-slate-200 overflow-x-auto">
               {response}
               {isStreaming && (
                 <span className="inline-block w-2.5 h-4 ml-0.5 align-middle bg-purple-500 animate-pulse" />

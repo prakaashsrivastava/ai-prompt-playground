@@ -3,9 +3,14 @@
 interface TokenInputProps {
   value: number;
   onChange: (value: number) => void;
+  disabled?: boolean;
 }
 
-export default function TokenInput({ value, onChange }: TokenInputProps) {
+export default function TokenInput({
+  value,
+  onChange,
+  disabled,
+}: TokenInputProps) {
   const presets = [256, 512, 1024, 2048];
 
   return (
@@ -25,7 +30,8 @@ export default function TokenInput({ value, onChange }: TokenInputProps) {
         step="1"
         value={value}
         onChange={(e) => onChange(parseInt(e.target.value) || 1)}
-        className="w-full py-2 px-3 bg-gray-800 text-white border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors"
+        disabled={disabled}
+        className="w-full py-2 px-3 bg-gray-800 text-white border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
       />
 
       <div className="flex flex-row gap-2">
@@ -33,8 +39,9 @@ export default function TokenInput({ value, onChange }: TokenInputProps) {
           <button
             key={preset}
             type="button"
+            disabled={disabled}
             onClick={() => onChange(preset)}
-            className={`flex-1 py-1.5 px-2 text-xs font-medium rounded-md border transition-colors ${
+            className={`flex-1 py-1.5 px-2 text-xs font-medium rounded-md border transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${
               value === preset
                 ? "bg-purple-500/20 text-purple-400 border-purple-500/50"
                 : "bg-gray-800 text-gray-400 border-gray-700 hover:bg-gray-700 hover:text-gray-300"
