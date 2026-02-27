@@ -53,11 +53,13 @@ export default function Home() {
         <div className="flex gap-4 items-center">
           <button
             onClick={() => setCompareMode(!compareMode)}
+            disabled={isLoading}
             className={cn(
               "flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full border transition-colors",
               compareMode
                 ? "bg-purple-500 text-white border-purple-500"
                 : "bg-transparent text-gray-400 border-gray-700 hover:text-white hover:border-gray-500",
+              isLoading ? "opacity-50 cursor-not-allowed" : "",
             )}
           >
             <Columns className="w-3.5 h-3.5" />
@@ -81,7 +83,7 @@ export default function Home() {
       {/* Main Content Area */}
       <div className="flex flex-row flex-1 overflow-hidden">
         {/* Left Panel (Config) */}
-        <div className="w-80 border-r border-gray-800 overflow-y-auto p-4 flex-shrink-0 bg-[#0f0f1a]">
+        <div className="w-96 border-r border-gray-800 overflow-y-auto p-4 flex-shrink-0 bg-[#0f0f1a]">
           <ConfigPanel
             selectedModel={selectedModel}
             onModelChange={setSelectedModel}
